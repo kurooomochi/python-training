@@ -1,7 +1,7 @@
 from typing import List, Optional, Dict
 
-from domain.Task import Task, TaskStatusEnum
-from domain.TaskRepository_port import TaskRepositoryPort
+from src.domain.Task import Task, TaskStatusEnum
+from src.domain.TaskRepository_port import TaskRepositoryPort
 import datetime
 
 class TaskMemoryRepository(TaskRepositoryPort):

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Optional, List
-from domain.Task import Task, TaskStatusEnum
+from src.domain.Task import Task, TaskStatusEnum
 
 class TodoServicePort(ABC):
     @abstractmethod

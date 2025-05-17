@@ -29,6 +29,6 @@ class Task:
         self.status = TaskStatusEnum.INPROGRESS
 
     def __str__(self):
-        status = "✓" if self.status == "done" else "✗"
+        status = "✓" if self.status == TaskStatusEnum.DONE else "✗"
         return f"[{status}] ID: {self.id} - {self.description}"
-    
+

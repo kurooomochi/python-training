@@ -1,7 +1,7 @@
 from typing import Optional, List
-from domain.Task import Task, TaskStatusEnum
-from domain.TodoService_port import TodoServicePort
-from domain.TaskRepository_port import TaskRepositoryPort
+from src.domain.Task import Task, TaskStatusEnum
+from src.domain.TodoService_port import TodoServicePort
+from src.domain.TaskRepository_port import TaskRepositoryPort
 
 class TodoService(TodoServicePort):
     def __init__(self, repository: TaskRepositoryPort):

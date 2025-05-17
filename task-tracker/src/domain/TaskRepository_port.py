@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from domain.Task import Task, TaskStatusEnum
+from src.domain.Task import Task, TaskStatusEnum
 from typing import Optional, List
 
 class TaskRepositoryPort(ABC):
@@ -22,4 +22,3 @@ class TaskRepositoryPort(ABC):
     @abstractmethod
     def update(self, task: Task) -> Optional[Task]:
         pass
-        

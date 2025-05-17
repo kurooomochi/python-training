@@ -4,7 +4,6 @@ import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
 
-
 from src.application.TodoService_adapter import TodoService
 from src.infrastructure.persistence.TaskMemoryRepository_adapter import TaskMemoryRepository
 from src.infrastructure.cli.handler import CLIHandler
@@ -12,7 +11,6 @@ from src.infrastructure.cli.handler import CLIHandler
 def main():
     """
     Main function to set up and run the To-Do CLI application.
-    This is the composition root of the application, where dependencies are wired together.
     """
     # 1. Choose and initialize the Driven Adapter (Persistence)
     task_repository = TaskMemoryRepository()

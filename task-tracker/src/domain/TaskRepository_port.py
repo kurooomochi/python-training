@@ -12,7 +12,7 @@ class TaskRepositoryPort(ABC):
         pass
 
     @abstractmethod
-    def get_by_id(self, task_id: int) -> Task:
+    def get_by_id(self, task_id: int) -> Optional[Task]:
         pass
 
     @abstractmethod

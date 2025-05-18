@@ -6,6 +6,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src'
 
 from src.application.TodoService_adapter import TodoService
 from src.infrastructure.persistence.TaskMemoryRepository_adapter import TaskMemoryRepository
+from src.infrastructure.persistence.TaskJsonRepository_adapter import TaskJsonRepository
 from src.infrastructure.cli.handler import CLIHandler
 
 def main():
@@ -13,7 +14,8 @@ def main():
     Main function to set up and run the To-Do CLI application.
     """
     # 1. Choose and initialize the Driven Adapter (Persistence)
-    task_repository = TaskMemoryRepository()
+    # task_repository = TaskMemoryRepository()
+    task_repository = TaskJsonRepository()
 
     # 2. Initialize the Application Core (Service)
     todo_service = TodoService(repository=task_repository)

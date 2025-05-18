@@ -59,20 +59,29 @@ The application is run from the command line.
     python3 main.py list
     ```
 
-*   **`update <task_id> <new_status>`**: Updates the status of an existing task.
-    *   Valid statuses: `pending`, `in progress`, `done`
+*   **`get <task_id>`**: Retrieves and displays a specific task by its ID.
     ```bash
-    python3 main.py update 1 done
+    python3 main.py get 1
     ```
 
-*   **`delete <task_id>`**: Deletes a task by its ID.
+*   **`remove <task_id>`**: Deletes a task by its ID.
     ```bash
     python3 main.py delete 1
     ```
 
-*   **`get <task_id>`**: Retrieves and displays a specific task by its ID.
+*   **`mark-done <task_id>`**: Marks a task as 'done'.
     ```bash
-    python3 main.py get 1
+    python3 main.py mark-done 1
+    ```
+
+*   **`mark-in-progress <task_id>`**: Marks a task as 'in progress'.
+    ```bash
+    python3 main.py mark-in-progress 1
+    ```
+
+*   **`mark-todo <task_id>`**: Marks a task as 'to do'.
+    ```bash
+    python3 main.py mark-todo 1
     ```
 
 ## Development

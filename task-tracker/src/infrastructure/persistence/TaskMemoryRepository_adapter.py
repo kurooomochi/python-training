@@ -1,4 +1,4 @@
-from typing import List, Optional, Dict
+from typing import List, Optional
 
 from src.domain.Task import Task, TaskStatusEnum
 from src.domain.TaskRepository_port import TaskRepositoryPort
@@ -10,9 +10,8 @@ class TaskMemoryRepository(TaskRepositoryPort):
     Useful for testing or simple applications where data persistence
     across sessions is not required.
     """
-
     def __init__(self):
-        self._tasks: Dict[int, Task] = {}
+        self._tasks: List[Task] = []
         self._next_id: int = 1
 
     def add(self, description: str) -> Task:
@@ -24,30 +23,33 @@ class TaskMemoryRepository(TaskRepositoryPort):
             createdAt=datetime.datetime.now(),
             updatedAt=datetime.datetime.now()
         )
-        self._tasks[self._next_id] = task
+        self._tasks.append(task)
         self._next_id += 1
         return task
 
     def get_by_id(self, task_id: int) -> Optional[Task]:
         """Retrieves a task by its ID from the in-memory store."""
-        return self._tasks.get(task_id)
+        for task in self._tasks:
+            if task.id == task_id:
+                return task
 
     def get_all(self, status: Optional[TaskStatusEnum] = None) -> List[Task]:
         """Retrieves all tasks from the in-memory store."""
         if status:
-            return [task for task in self._tasks.values() if task.status == status]
-        return list(self._tasks.values())
+            return [task for task in self._tasks if task.status.value == status.value]
+        return self._tasks
 
     def update(self, task: Task) -> Optional[Task]:
-        """Updates an existing task in the in-memory store."""
-        if task.id is not None and task.id in self._tasks:
-            self._tasks[task.id] = task
-            return task
+        for i, existing_task in enumerate(self._tasks):
+            if existing_task.id == task.id:
+                self._tasks[i] = task
+                return task
         return None
-
+    
     def delete(self, task_id: int) -> bool:
         """Deletes a task by its ID from the in-memory store."""
-        if task_id in self._tasks:
-            del self._tasks[task_id]
-            return True
+        for task in self._tasks:
+            if task.id == task_id:
+                self._tasks.remove(task)
+                return True
         return False

@@ -47,5 +47,5 @@ class Task:
     def __str__(self):
         """Returns a string representation of the task."""
         status_icon = "✓" if self.status == TaskStatusEnum.DONE else ("⏳" if self.status == TaskStatusEnum.INPROGRESS else "✗")
-        return f"[{status_icon}] ID: {self.id} - {self.description} (Created: {self.createdAt}, Updated: {self.updatedAt})"
+        return f"[{status_icon}] ID: {self.id} - {self.description}"
 

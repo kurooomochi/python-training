@@ -1,6 +1,6 @@
 # Task Tracker
 
-This is a simple command-line task tracker application written in Python.
+This is a simple command-line task tracker application written in Python. This project was developed as a solution to the [Task Tracker challenge on roadmap.sh](https://roadmap.sh/projects/task-tracker).
 
 ## Features
 
